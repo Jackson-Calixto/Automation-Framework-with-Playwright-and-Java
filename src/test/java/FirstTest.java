@@ -15,7 +15,9 @@ public class FirstTest {
         page.navigate("https://bestbuy.com/?intl=nosplash");
         
                       //a link [@dataAtribute=''] Http Tag Selector
-        page.locator("//a[@data-lid='hdr_dotd']").click();
+        //page.locator("//a[@data-lid='hdr_dotd']").click();
+                            //https://www.w3schools.com/cssref/css_selectors.php
+        page.locator("[data-lid=hdr_dotd]").click(); //CSS Selectors
 
         System.out.println();
 
