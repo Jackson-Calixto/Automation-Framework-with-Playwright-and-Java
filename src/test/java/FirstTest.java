@@ -1,7 +1,4 @@
-import com.microsoft.playwright.Browser;
-import com.microsoft.playwright.BrowserType;
-import com.microsoft.playwright.Page;
-import com.microsoft.playwright.Playwright;
+import com.microsoft.playwright.*;
 import org.junit.jupiter.api.Test;
 
 public class FirstTest {
@@ -10,9 +7,13 @@ public class FirstTest {
     public void firstTest() {
         Playwright playwright = Playwright.create();
         Browser browser = playwright.chromium().launch(new BrowserType.LaunchOptions().setHeadless(false));
-        Page page = browser.newPage();
+        BrowserContext browserContext = browser.newContext();
+        BrowserContext browserContext2 = browser.newContext();
+        Page page = browserContext.newPage();
+        Page page2 = browserContext2.newPage();
 
         page.navigate("https://google.com");
+        page2.navigate("https://bing.com");
 
         System.out.println();
 
