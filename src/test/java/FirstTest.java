@@ -22,8 +22,12 @@ public class FirstTest {
         // https://playwright.dev/docs/other-locators
         //page.locator("a:has-text(\"Deal of the Day\")").click(); // Other Locators
 
-        Locator locator = page.locator("a:has-text(\"Deal of the Day\")"); // Locators
-        locator.click();
+        //Locator locator = page.locator("a:has-text(\"Deal of the Day\")"); // Locators
+        //locator.click();
+
+        Locator menuItems = page.locator("ul.bottom-nav-left li a"); // Locators
+
+        System.out.println(menuItems.allTextContents());
 
         System.out.println();
 
