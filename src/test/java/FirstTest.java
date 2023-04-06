@@ -27,7 +27,9 @@ public class FirstTest {
 
         Locator menuItems = page.locator("ul.bottom-nav-left li a"); // Locators
 
-        System.out.println(menuItems.allTextContents());
+        //System.out.println(menuItems.allTextContents());
+        for (int i=0; i < menuItems.count(); i++)
+            System.out.println(menuItems.nth(i).textContent());
 
         System.out.println();
 
