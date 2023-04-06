@@ -20,7 +20,10 @@ public class FirstTest {
         // https://www.w3schools.com/cssref/css_selectors.php
         // page.locator("[data-lid=hdr_dotd]").click(); //CSS Selectors
         // https://playwright.dev/docs/other-locators
-        page.locator("a:has-text(\"Deal of the Day\")").click(); // Other Locators
+        //page.locator("a:has-text(\"Deal of the Day\")").click(); // Other Locators
+
+        Locator locator = page.locator("a:has-text(\"Deal of the Day\")"); // Locators
+        locator.click();
 
         System.out.println();
 
