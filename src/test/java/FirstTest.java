@@ -20,16 +20,19 @@ public class FirstTest {
         // https://www.w3schools.com/cssref/css_selectors.php
         // page.locator("[data-lid=hdr_dotd]").click(); //CSS Selectors
         // https://playwright.dev/docs/other-locators
-        //page.locator("a:has-text(\"Deal of the Day\")").click(); // Other Locators
+        // page.locator("a:has-text(\"Deal of the Day\")").click(); // Other Locators
 
-        //Locator locator = page.locator("a:has-text(\"Deal of the Day\")"); // Locators
-        //locator.click();
+        // Locator locator = page.locator("a:has-text(\"Deal of the Day\")"); //
+        // Locators
+        // locator.click();
 
         Locator menuItems = page.locator("ul.bottom-nav-left li a"); // Locators
 
-        //System.out.println(menuItems.allTextContents());
-        for (int i=0; i < menuItems.count(); i++)
+        // System.out.println(menuItems.allTextContents());
+        for (int i = 0; i < menuItems.count(); i++)
             System.out.println(menuItems.nth(i).textContent());
+
+        page.locator("ul.bottom-nav-left li a", new Page.LocatorOptions().setHasText("Deal of the Day")).click(); // Filter Locator
 
         System.out.println();
 
