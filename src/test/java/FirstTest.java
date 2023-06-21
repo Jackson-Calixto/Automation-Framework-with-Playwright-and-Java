@@ -1,18 +1,11 @@
-import com.microsoft.playwright.*;
+import com.microsoft.playwright.Locator;
+import com.microsoft.playwright.Page;
 import org.junit.jupiter.api.Test;
 
-import java.util.Arrays;
-
-public class FirstTest {
+public class FirstTest extends PlaywrightRunner {
 
     @Test
     public void firstTest() {
-        Playwright playwright = Playwright.create();
-        Browser browser = playwright.chromium().launch(new BrowserType.LaunchOptions().setHeadless(false));
-        BrowserContext browserContext = browser
-                .newContext(new Browser.NewContextOptions().setPermissions(Arrays.asList("geolocation")));
-        Page page = browserContext.newPage();
-
         page.navigate("https://bestbuy.com/?intl=nosplash");
 
         // a link [@dataAtribute=''] Http Tag Selector
@@ -35,7 +28,5 @@ public class FirstTest {
         page.locator("ul.bottom-nav-left li a", new Page.LocatorOptions().setHasText("Deal of the Day")).click(); // Filter Locator
 
         System.out.println();
-        browserContext.close();
-        browser.close();
     }
 }

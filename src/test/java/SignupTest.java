@@ -1,20 +1,12 @@
-import com.microsoft.playwright.*;
 import com.microsoft.playwright.assertions.LocatorAssertions;
 import org.junit.jupiter.api.Test;
 
-import java.util.Arrays;
-
 import static com.microsoft.playwright.assertions.PlaywrightAssertions.assertThat;
 
-public class SignupTest {
+public class SignupTest extends PlaywrightRunner {
 
     @Test
     public void signupTest() {
-        Playwright playwright = Playwright.create();
-        Browser browser = playwright.chromium().launch(new BrowserType.LaunchOptions().setHeadless(false));
-        BrowserContext browserContext = browser
-                .newContext(new Browser.NewContextOptions().setPermissions(Arrays.asList("geolocation")));
-        Page page = browserContext.newPage();
         page.navigate("https://bestbuy.com/?intl=nosplash");
 
         page.locator("#account-menu-account-button").click();
@@ -33,7 +25,5 @@ public class SignupTest {
         assertThat(page.locator("button.cia-form__controls__submit")).isEnabled(new LocatorAssertions.IsEnabledOptions().setTimeout(10000));
 
         System.out.println();
-        browserContext.close();
-        browser.close();
     }
 }
