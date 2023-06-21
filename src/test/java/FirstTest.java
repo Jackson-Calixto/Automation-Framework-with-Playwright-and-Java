@@ -35,6 +35,7 @@ public class FirstTest {
         page.locator("ul.bottom-nav-left li a", new Page.LocatorOptions().setHasText("Deal of the Day")).click(); // Filter Locator
 
         System.out.println();
-
+        browserContext.close();
+        browser.close();
     }
 }
