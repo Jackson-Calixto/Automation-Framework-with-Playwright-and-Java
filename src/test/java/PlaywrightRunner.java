@@ -2,6 +2,7 @@ import com.microsoft.playwright.*;
 import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.BeforeEach;
+import pages.AccountNavigationPage;
 import pages.CreateAccountPage;
 
 import java.util.Arrays;
@@ -13,6 +14,7 @@ public class PlaywrightRunner {
     protected static Playwright playwright;
 
     protected CreateAccountPage createAccountPage;
+    protected AccountNavigationPage accountNavigationPage;
 
     @BeforeAll
     public static void init(){
@@ -27,6 +29,7 @@ public class PlaywrightRunner {
         page = browserContext.newPage();
 
         createAccountPage = new CreateAccountPage(page);
+        accountNavigationPage = new AccountNavigationPage(page);
     }
 
     @AfterEach
