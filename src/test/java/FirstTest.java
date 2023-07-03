@@ -6,7 +6,7 @@ public class FirstTest extends PlaywrightRunner {
 
     @Test
     public void firstTest() {
-        page.navigate("https://bestbuy.com/?intl=nosplash");
+        page.navigate(getProperty("url"));
 
         // a link [@dataAtribute=''] Http Tag Selector
         // page.locator("//a[@data-lid='hdr_dotd']").click();

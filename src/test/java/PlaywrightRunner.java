@@ -5,6 +5,7 @@ import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.BeforeEach;
 import pages.AccountNavigationPage;
 import pages.CreateAccountPage;
+import services.EnvironmentReaderService;
 
 import java.lang.reflect.Field;
 import java.lang.reflect.InvocationTargetException;
@@ -21,9 +22,6 @@ public class PlaywrightRunner {
 
     @PlaywrightPage
     protected AccountNavigationPage accountNavigationPage;
-
-    @PlaywrightPage
-    protected Page newpage;
 
     @BeforeAll
     public static void init(){
@@ -57,5 +55,9 @@ public class PlaywrightRunner {
     public void tearDown(){
         browserContext.close();
         browser.close();
+    }
+
+    protected String getProperty(String key){
+        return EnvironmentReaderService.getProperty(key);
     }
 }

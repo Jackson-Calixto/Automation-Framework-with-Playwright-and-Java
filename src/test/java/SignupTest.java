@@ -5,7 +5,7 @@ public class SignupTest extends PlaywrightRunner {
 
     @Test
     public void signupTest() {
-        page.navigate("https://bestbuy.com/?intl=nosplash");
+        page.navigate(getProperty("url"));
 
         accountNavigationPage.navigateTo(AccountEntries.CREATE_ACCOUNT);
 
