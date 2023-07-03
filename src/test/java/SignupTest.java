@@ -5,7 +5,7 @@ public class SignupTest extends PlaywrightRunner {
 
     @Test
     public void signupTest() {
-        page.navigate(getProperty("url"));
+        homePage.navigate();
 
         accountNavigationPage.navigateTo(AccountEntries.CREATE_ACCOUNT);
 

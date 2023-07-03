@@ -5,6 +5,8 @@ import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.BeforeEach;
 import pages.AccountNavigationPage;
 import pages.CreateAccountPage;
+import pages.HomePage;
+import pages.SignInPage;
 import services.EnvironmentReaderService;
 
 import java.lang.reflect.Field;
@@ -23,6 +25,12 @@ public class PlaywrightRunner {
     @PlaywrightPage
     protected AccountNavigationPage accountNavigationPage;
 
+    @PlaywrightPage
+    protected HomePage homePage;
+
+    @PlaywrightPage
+    protected SignInPage signInPage;
+
     @BeforeAll
     public static void init(){
         playwright = Playwright.create();
@@ -30,7 +38,7 @@ public class PlaywrightRunner {
 
     @BeforeEach
     public void setUp() {
-        browser = playwright.chromium().launch(new BrowserType.LaunchOptions().setHeadless(false));
+        browser = playwright.firefox().launch(new BrowserType.LaunchOptions().setHeadless(false));
         browserContext = browser.newContext(new Browser.NewContextOptions().setPermissions(Arrays.asList("geolocation")));
         page = browserContext.newPage();
 
