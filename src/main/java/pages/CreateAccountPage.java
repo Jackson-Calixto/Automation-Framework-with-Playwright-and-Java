@@ -1,5 +1,6 @@
 package pages;
 
+import com.microsoft.playwright.Locator;
 import com.microsoft.playwright.Page;
 import com.microsoft.playwright.assertions.LocatorAssertions;
 
@@ -31,7 +32,7 @@ public class CreateAccountPage {
         createAccountPage.locator(CONFIRM_PASSWORD).fill("First Name");
         assertThat(createAccountPage.locator(VALIDATION_MESSAGE)).containsText("Your passwords match!", new LocatorAssertions.ContainsTextOptions().setTimeout(30000));
         createAccountPage.locator(PHONE).fill("1234567890");
-        createAccountPage.locator(RECOVERY_PHONE_CHECKBOX).check();
+        createAccountPage.locator(RECOVERY_PHONE_CHECKBOX).check(new Locator.CheckOptions().setTimeout(70000));
         assertThat(createAccountPage.locator(SUBMIT)).isEnabled(new LocatorAssertions.IsEnabledOptions().setTimeout(10000));
     }
 }

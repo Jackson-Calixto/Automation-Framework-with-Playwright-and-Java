@@ -40,7 +40,10 @@ public class PlaywrightRunner {
     public void setUp() {
         browser = playwright.firefox().launch(new BrowserType.LaunchOptions().setHeadless(false));
         browserContext = browser.newContext(new Browser.NewContextOptions().setPermissions(Arrays.asList("geolocation")));
+        browserContext.setDefaultTimeout(40000);
+        //browserContext.setDefaultNavigationTimeout(45000);
         page = browserContext.newPage();
+        //page.setDefaultTimeout(50000);
 
         initPage(this, page);
     }
