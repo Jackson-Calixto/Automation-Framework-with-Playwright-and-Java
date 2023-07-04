@@ -14,7 +14,7 @@ public class SignInPage {
     }
 
     public void signIn(String email, String password){
-        signInPage.pause();
+        //signInPage.pause();
         signInPage.locator(EMAIL).fill(email);
         signInPage.locator(PASSWORD).fill(password);
 

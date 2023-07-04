@@ -9,3 +9,6 @@ Set-ExecutionPolicy Bypass -Scope Process -Force; [System.Net.ServicePointManage
 PWDEBUG=console 
 playwright.$(selector)
 playwright.$(selector).click()
+
+# Viewing the trace
+mvn exec:java -e -D exec.mainClass=com.microsoft.playwright.CLI -D exec.args="show-trace trace.zip"

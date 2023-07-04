@@ -11,6 +11,7 @@ import services.EnvironmentReaderService;
 
 import java.lang.reflect.Field;
 import java.lang.reflect.InvocationTargetException;
+import java.nio.file.Paths;
 import java.util.Arrays;
 
 public class PlaywrightRunner {
@@ -41,6 +42,9 @@ public class PlaywrightRunner {
         browser = playwright.firefox().launch(new BrowserType.LaunchOptions().setHeadless(false));
         browserContext = browser.newContext(new Browser.NewContextOptions().setPermissions(Arrays.asList("geolocation")));
         browserContext.setDefaultTimeout(40000);
+
+        browserContext.tracing().start(new Tracing.StartOptions().setScreenshots(true).setSnapshots(true).setSources(true));
+
         //browserContext.setDefaultNavigationTimeout(45000);
         page = browserContext.newPage();
         //page.setDefaultTimeout(50000);
@@ -64,6 +68,7 @@ public class PlaywrightRunner {
 
     @AfterEach
     public void tearDown(){
+        browserContext.tracing().stop(new Tracing.StopOptions().setPath(Paths.get("trace.zip")));
         browserContext.close();
         browser.close();
     }
