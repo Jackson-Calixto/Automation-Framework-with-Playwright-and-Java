@@ -4,3 +4,8 @@ Set-ExecutionPolicy Bypass -Scope Process -Force; [System.Net.ServicePointManage
 # choco install maven
 # choco install git
 # https://www.jetbrains.com/idea/download/#section=windows
+
+<!-- This option brings plawright to dev tools console -->
+PWDEBUG=console 
+playwright.$(selector)
+playwright.$(selector).click()
