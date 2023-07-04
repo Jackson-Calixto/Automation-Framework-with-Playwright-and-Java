@@ -6,6 +6,7 @@ public class SignInPage {
     private final Page signInPage;
     private static final String EMAIL = "input#fld-e";
     private static final String PASSWORD = "input#fld-p1";
+    private static final String FECHAR = "[aria-label=\"Fechar\"]";
     private static final String SIGN_IN_BUTTON = "//button[@data-track='Sign In']";
 
     public SignInPage(Page page) {
@@ -13,8 +14,10 @@ public class SignInPage {
     }
 
     public void signIn(String email, String password){
+        signInPage.pause();
         signInPage.locator(EMAIL).fill(email);
         signInPage.locator(PASSWORD).fill(password);
+
         signInPage.locator(SIGN_IN_BUTTON).click();
     }
 }
