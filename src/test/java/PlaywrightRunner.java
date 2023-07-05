@@ -1,12 +1,8 @@
 import annotations.PlaywrightPage;
 import com.microsoft.playwright.*;
-import org.junit.jupiter.api.AfterEach;
-import org.junit.jupiter.api.BeforeAll;
-import org.junit.jupiter.api.BeforeEach;
-import pages.AccountNavigationPage;
-import pages.CreateAccountPage;
-import pages.HomePage;
-import pages.SignInPage;
+import org.junit.jupiter.api.*;
+import org.junit.jupiter.api.extension.ExtendWith;
+import pages.*;
 import services.EnvironmentReaderService;
 
 import java.lang.reflect.Field;
@@ -14,6 +10,7 @@ import java.lang.reflect.InvocationTargetException;
 import java.nio.file.Paths;
 import java.util.Arrays;
 
+@ExtendWith(TestWatcherExtention.class)
 public class PlaywrightRunner {
     protected Page page;
     protected Browser browser;
@@ -71,8 +68,9 @@ public class PlaywrightRunner {
     }
 
     @AfterEach
-    public void tearDown(){
-        browserContext.tracing().stop(new Tracing.StopOptions().setPath(Paths.get("trace.zip")));
+    public void tearDown(TestInfo testInfo){
+        browserContext.tracing().stop(new Tracing.StopOptions()
+                .setPath(Paths.get("traces/" + testInfo.getDisplayName().replace("()", "") + ".zip")));
         browserContext.close();
         browser.close();
     }
