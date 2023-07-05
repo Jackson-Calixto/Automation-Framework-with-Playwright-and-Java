@@ -23,3 +23,5 @@ target/
 .terraform/
 *.nupkg
 trace.zip
+*.webm
+videos/

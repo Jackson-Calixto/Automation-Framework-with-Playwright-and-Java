@@ -40,7 +40,11 @@ public class PlaywrightRunner {
     @BeforeEach
     public void setUp() {
         browser = playwright.firefox().launch(new BrowserType.LaunchOptions().setHeadless(false));
-        browserContext = browser.newContext(new Browser.NewContextOptions().setPermissions(Arrays.asList("geolocation")));
+        browserContext = browser.newContext(new Browser.NewContextOptions()
+                .setPermissions(Arrays.asList("geolocation"))
+                .setRecordVideoDir(Paths.get("videos/"))
+                .setRecordVideoSize(640, 480)
+        );
         browserContext.setDefaultTimeout(40000);
 
         browserContext.tracing().start(new Tracing.StartOptions().setScreenshots(true).setSnapshots(true).setSources(true));
