@@ -11,11 +11,12 @@ import java.nio.file.Paths;
 import java.util.Arrays;
 
 @ExtendWith(TestWatcherExtention.class)
+@TestInstance(TestInstance.Lifecycle.PER_CLASS)
 public class PlaywrightRunner {
     protected Page page;
     protected Browser browser;
     protected BrowserContext browserContext;
-    protected static Playwright playwright;
+    protected Playwright playwright;
 
     @PlaywrightPage
     protected CreateAccountPage createAccountPage;
@@ -30,7 +31,7 @@ public class PlaywrightRunner {
     protected SignInPage signInPage;
 
     @BeforeAll
-    public static void init(){
+    public void init(){
         playwright = Playwright.create();
     }
 
@@ -44,7 +45,7 @@ public class PlaywrightRunner {
         );
         browserContext.setDefaultTimeout(40000);
 
-        browserContext.tracing().start(new Tracing.StartOptions().setScreenshots(true).setSnapshots(true).setSources(true));
+        browserContext.tracing().start(new Tracing.StartOptions().setScreenshots(true).setSnapshots(true).setSources(false));
 
         //browserContext.setDefaultNavigationTimeout(45000);
         page = browserContext.newPage();

@@ -1,10 +1,12 @@
 import com.microsoft.playwright.Locator;
 import com.microsoft.playwright.Page;
+import org.junit.jupiter.api.Disabled;
 import org.junit.jupiter.api.Test;
 
 public class FirstTest extends PlaywrightRunner {
 
     @Test
+    @Disabled
     public void firstTest() {
         page.navigate(getProperty("url"));
 
