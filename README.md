@@ -12,3 +12,16 @@ playwright.$(selector).click()
 
 # Viewing the trace
 mvn exec:java -e -D exec.mainClass=com.microsoft.playwright.CLI -D exec.args="show-trace trace.zip"
+
+# Downloading the Selenium Grid
+https://github.com/SeleniumHQ/selenium/releases/download/selenium-4.10.0/selenium-server-4.10.0.jar
+
+# Running the Selenium Server
+java -jar .\selenium-server-4.10.0.jar hub --host localhost 
+
+# Starting Selenium Grid
+https://playwright.dev/java/docs/selenium-grid
+$SE_NODE_GRID_URL="http://localhost:4444/wd/hub";java -jar .\selenium-server-4.10.0.jar node --selenium-manager true --port 5555
+
+# Connecting Plawright to Selenium Grid
+$SELENIUM_REMOTE_URL="http://localhost:4444";mvn test
