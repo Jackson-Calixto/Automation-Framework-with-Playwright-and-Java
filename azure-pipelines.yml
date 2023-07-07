@@ -6,7 +6,7 @@
 trigger:
 - Learn-The-Basic-Concepts-About-Playwright
 
-pool: Hosted Agent
+pool: Default
 
 steps:
 - task: Maven@3
