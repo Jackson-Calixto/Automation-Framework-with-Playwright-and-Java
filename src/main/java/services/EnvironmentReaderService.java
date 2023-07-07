@@ -5,11 +5,12 @@ import java.util.Properties;
 
 public class EnvironmentReaderService {
 
-    private static final Properties props = new Properties();
+    private static Properties props = new Properties();
 
     static {
+
         String envFile = System.getProperty("env");
-        if (envFile == null) {
+        if(envFile == null) {
             envFile = "production";
         }
         String filePath = envFile.concat(".properties");
@@ -21,6 +22,7 @@ public class EnvironmentReaderService {
             throw new RuntimeException(e);
         }
     }
+
     public static String getProperty(String key) {
         return props.getProperty(key);
     }

@@ -4,19 +4,9 @@ import pages.AccountEntries;
 public class SignupTest extends PlaywrightRunner {
 
     @Test
-    public void signupTest1() {
+    public void signUpTest() {
         homePage.navigate();
-
         accountNavigationPage.navigateTo(AccountEntries.CREATE_ACCOUNT);
-
-        createAccountPage.createAccount();
-    }
-    @Test
-    public void signupTest2() {
-        homePage.navigate();
-
-        accountNavigationPage.navigateTo(AccountEntries.CREATE_ACCOUNT);
-
         createAccountPage.createAccount();
     }
 }
