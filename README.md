@@ -28,3 +28,6 @@ $SELENIUM_REMOTE_URL="http://localhost:4444";mvn test
 
 # Integrate your tests with Jenkins CI/CD
 Basicaly download and setup Jenkins adding project and setting git source with goal Maven Test
+
+# How to deal with Pop-up
+http://watir.com/examples/forms_with_input_elements.html
