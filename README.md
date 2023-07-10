@@ -25,3 +25,6 @@ $SE_NODE_GRID_URL="http://localhost:4444/wd/hub";java -jar .\selenium-server-4.1
 
 # Connecting Plawright to Selenium Grid
 $SELENIUM_REMOTE_URL="http://localhost:4444";mvn test
+
+# Integrate your tests with Jenkins CI/CD
+Basicaly download and setup Jenkins adding project and setting git source with goal Maven Test
