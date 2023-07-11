@@ -31,3 +31,9 @@ Basicaly download and setup Jenkins adding project and setting git source with g
 
 # How to deal with Pop-up
 http://watir.com/examples/forms_with_input_elements.html
+
+# Evaluating JavaScript
+document.querySelectorAll('.menu__link')
+Array.from(document.querySelectorAll('.menu__link'))
+Array.from(document.querySelectorAll('.menu__link')).filter(el => el.innerText === `Evaluating JavaScript`)
+Array.from(document.querySelectorAll('.menu__link')).filter(el => el.innerText === `Evaluating JavaScript`).length === 1
